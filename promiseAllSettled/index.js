@@ -11,8 +11,8 @@ const allSettled1 = (promises) => {
 const allSettled2 = (promises) => {
   let wrappedPromises = promises.map((promise) =>
     Promise.resolve(promise).then(
-      (val) => ({ status: "fulfilled", value: val }),
-      (err) => ({ status: "rejected", reason: err })
+      (value) => ({ status: "fulfilled", value }),
+      (reason) => ({ status: "rejected", reason })
     )
   );
   return Promise.all(wrappedPromises);
