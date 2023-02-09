@@ -7,8 +7,8 @@ const myMap = (func, array) => {
 };
 
 const myMapOnReduce = (func, array) => {
-  return array.reduce((acc, item) => {
-    acc.push(func(item));
+  return array.reduce((acc, item, ind, arr) => {
+    acc.push(func(item, ind, arr));
     return acc;
   }, []);
 };

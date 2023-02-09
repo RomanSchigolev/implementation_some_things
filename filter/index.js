@@ -9,8 +9,8 @@ const myFilter = (func, array) => {
 };
 
 const myFilterOnReduce = (func, array) => {
-  return array.reduce((acc, item) => {
-    if (func(item)) {
+  return array.reduce((acc, item, ind, arr) => {
+    if (func(item, ind, arr)) {
       acc.push(item);
     }
     return acc;
