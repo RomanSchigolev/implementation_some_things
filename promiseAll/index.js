@@ -86,3 +86,13 @@ const runInParallel = (fetch1, fetch2, fetch3) =>
   promiseAll1([fetch1(), fetch2(), fetch3()]);
 
 runInParallel(fetch1, fetch2, fetch3).then(console.log); // [1, 2, 3]
+
+const promise1 = new Promise((resolve) => setTimeout(() => resolve(1), 5000));
+const promise2 = new Promise((resolve, reject) =>
+  setTimeout(() => reject("Error"), 2000)
+);
+const promise3 = new Promise((resolve) => setTimeout(() => resolve(3), 1000));
+
+promiseAll3([promise1, promise2, promise3])
+  .then(console.log)
+  .catch(console.log); // Error
